@@ -3,6 +3,7 @@ pipeline {
         docker {
             image 'node:14-alpine'
             args '-p 3000:3000'
+            rm -f 
         }
     }
     environment {
@@ -25,8 +26,7 @@ pipeline {
             steps {
                 sh "chmod +x ./deliver.sh"
                 sh './deliver.sh'
-                input message: 'Finished using the web site? (Click "Proceed" to continue)'
-                sh './jenkins/scripts/kill.sh'
+                sh "npm start"
             }
         }
     }
