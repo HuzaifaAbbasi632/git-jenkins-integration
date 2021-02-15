@@ -24,8 +24,7 @@ pipeline {
         stage('Deliver') {
             steps {
                 sh "chmod +x ./deliver.sh"
-                sh './deliver.sh'
-                input message: 'Finished using the web site? (Click "Proceed" to continue)'                            
+                sh './deliver.sh'                            
                 }
             }
     }
