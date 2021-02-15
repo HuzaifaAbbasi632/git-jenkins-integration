@@ -24,8 +24,9 @@ pipeline {
         stage('Deliver') {
             steps {
                 sh "chmod +x ./deliver.sh"
-                sh './deliver.sh'                            
-                }
+                sh './deliver.sh'
+                sh 'npm start'
             }
+        }
     }
 }
