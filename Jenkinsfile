@@ -26,6 +26,7 @@ pipeline {
                 sh 'chmod +x ./deliver.sh'
                 sh './deliver.sh'
                 input message: 'Finished using the web site? (Click "Proceed" to continue)'
+                sh 'chmod +x ./kill.sh'
                 sh './kill.sh'
             }
         }
