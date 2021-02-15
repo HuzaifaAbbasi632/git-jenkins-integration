@@ -6,7 +6,7 @@ pipeline {
         }
     }
     environment {
-        CI = 'true' 
+        CI = 'true'
         HOME = '.'
     }
     stages {
@@ -17,14 +17,16 @@ pipeline {
         }
         stage('Test') {
             steps {
-                sh "chmod +x ./Test.sh"
+                sh 'chmod +x ./Test.sh'
                 sh './Test.sh'
             }
         }
         stage('Deliver') {
             steps {
-                sh "chmod +x ./deliver.sh"
+                sh 'chmod +x ./deliver.sh'
+                sh './deliver.sh'
                 input message: 'Finished using the web site? (Click "Proceed" to continue)'
+                sh './kill.sh'
             }
         }
     }
